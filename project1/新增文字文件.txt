@@ -1,0 +1,16 @@
+#include <iostream>
+char Distinction;
+int Property;
+char Belonging;
+int NumOfBelonging;
+int HolosHelp;
+int main()
+{
+	cout<<"Even if Lawrence gain much helping by Holo,hestill have a lot of danger."
+		<<"how did he work before he meet Holo?"
+		<<endl
+		<<"Now where we go?"
+		<<"TownA or TownB or TownC?";
+	system("pause");
+
+}

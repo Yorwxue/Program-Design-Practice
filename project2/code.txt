@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+class Weather
+{
+private:
+	double Temperature;
+	double Humidity;
+public:
+	Weather(double Temperature,double Humidity);
+	double GetTemperature(){return Temperature;}
+	double GetHumidity(){return Humidity;}
+	friend const Weather operator + (const Weather& NowWeather,const Weather& OtherWeather);
+};
+
+Weather::Weather(double Temperature,double Humidity):Temperature(Temperature),Humidity(Humidity)
+{}
+
+const Weather operator + (const Weather& NowWeather,const Weather& OtherWeather)
+{
+	double ResultTemperature=(NowWeather.Temperature+OtherWeather.Temperature)/2;
+	double ResultHumidity=(NowWeather.Humidity+OtherWeather.Humidity)/2;
+    return Weather(ResultTemperature,ResultHumidity);
+}
+
+Weather Now(25,20);
+Weather Sunny(29,14);
+Weather Windy(23,16);
+Weather Rainy(19,28);
+
+int main()
+{
+	cout<<"It's Oct. now,"<<endl;
+	cout<<"Today,a normal weather,"<<endl
+        <<"Temperature is "<<Now.GetTemperature()<<"¡Dc"<<endl
+        <<"Humidity is "<<Now.GetHumidity()<<"%"<<endl<<endl;
+	Now=Now+Sunny;
+    cout<<"If we have sunshine this morning,"<<endl
+		<<"Temperature will be "<<Now.GetTemperature()<<"¡Dc"<<endl
+        <<"Humidity will be "<<Now.GetHumidity()<<"%"<<endl<<endl;
+	Now=Now+Windy;
+	cout<<"But,if it will windy afternoom,maybe"<<endl
+		<<"Temperature will be "<<Now.GetTemperature()<<"¡Dc"<<endl
+        <<"Humidity will be "<<Now.GetHumidity()<<"%"<<endl<<endl;
+	Now=Now+Rainy;
+	cout<<"if after windy,it rainning"<<endl
+		<<"Temperature will be "<<Now.GetTemperature()<<"¡Dc"<<endl
+        <<"Humidity will be "<<Now.GetHumidity()<<"%"<<endl<<endl;
+	system("pause");
+	return 0;
+}

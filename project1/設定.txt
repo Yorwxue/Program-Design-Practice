@@ -1,0 +1,73 @@
+class:
+
+  base:
+
+    Merchant:
+      Variable:
+        Negotiation:
+          商人的基本談判能力(吹捧、騙術等，用於降低對方的戒心)
+
+        Wariness:
+          面對各種情況的警戒狀態
+
+      Function:
+        Price Reduction:
+          殺價能力，受Negotiation影響
+
+        Price Rising:
+           漲價，受Wariness影響
+
+
+            
+  advance:
+
+
+    Traveling Merchant:
+      Inherit Modification:
+        Price Reduction:
+          長期旅行狀態，對當地情況較不了解，殺價能力偏弱
+
+        Price Rising:
+          擁有當地缺乏的物資，商談本錢高
+
+      New Function:
+        Traveling:
+         長途貿易必備的旅行能力，受Wariness影響
+
+       Smuggling:
+         走私，受Negotiation影響
+
+
+    Towns Merchant:
+      Inherit Modification:
+        Price Reduction:
+          對當地所有商業聊若指掌，擁有較強的殺價能力
+
+        Price Rising:
+          商品要外銷其他城鎮需要旅行商人幫助，漲價能力有限
+
+      New Function:
+        management:
+          影響商會規模的能力，規模越大，買賣價格可以越高，受Negotiation影響
+
+        Business Avenues:
+          商品買賣的獨家門路，走私違禁品時必備的能力，受Negotiation影響
+
+
+    Armed Group:
+      Arm:
+        武力
+      Function:
+
+        Guard:
+          衛兵，檢查是否有違禁品，受Wariness影響
+
+        Predatory:
+          掠奪集團必備的搶奪能力，受Arm影響
+
+        Bodyguard:
+          保護商旅的能力，受Arm影響
+
+
+    
+    
