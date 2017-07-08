@@ -1,0 +1,162 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+//-----------------class-----------------//
+class shape
+{
+  private:
+    string shape_instance_name;
+  public:
+	shape();
+    shape(string inst_name);
+    void set_name(string inst_name){shape_instance_name=inst_name;}
+    string get_name(){return shape_instance_name;}
+};
+class rectangle : public shape
+{
+  private:
+    double width,height;
+  public:
+    rectangle();
+    rectangle(string inst_name,double w,double h);
+    void set_width(double w){width=w;}
+    double get_width(){return width;}
+    void set_height(double h){height=h;}
+    double get_height(){return height;}
+	double calc_perimeter(){return (2*(width+height));}
+	double calc_area(){return (width*height);}
+};
+class right_angled_triangle : public shape
+{
+  private:
+    double width,height;
+  public:
+    right_angled_triangle();
+    right_angled_triangle(string inst_name,double w,double h);
+    void set_width(double w){width=w;}
+    double get_width(){return width;}
+    void set_height(double h){height=h;}
+    double get_height(){return height;}
+	double get_hypotenuse(){return (sqrt((width*width)+(height*height)));}
+	double calc_perimeter(){return (width+height+get_hypotenuse());}
+	double calc_area(){return ((width*height)*0.5);}
+};
+class circle : public shape
+{
+  private:
+    double radius;
+  public:
+    circle();
+    circle(string inst_name,double r);
+    void set_radius(double r){radius=r;}
+    double get_radius(){return radius;}
+	double calc_perimeter(){return (2*3.14*radius);}
+	double calc_area(){return (3.14*radius*radius);}
+};
+
+//-----------------constructor-------------//
+shape::shape():shape_instance_name("un-declare")
+{}
+shape::shape(string inst_name):shape_instance_name(inst_name)
+{}
+
+rectangle::rectangle():shape(),width(0),height(0)
+{}
+rectangle::rectangle(string inst_name,double w,double h):shape(inst_name),width(w),height(h)
+{}
+
+right_angled_triangle::right_angled_triangle():shape(),width(0),height(0)
+{}
+right_angled_triangle::right_angled_triangle(string inst_name,double w,double h):shape(inst_name),width(w),height(h)
+{}
+
+circle::circle():shape(),radius(0)
+{}
+circle::circle(string inst_name,double r):shape(inst_name),radius(r)
+{}
+
+//------------declare---------------//
+shape shape_1;
+rectangle rectangle_1("Rectangle",10,10);
+right_angled_triangle right_angled_triangle_1("Right_Angled_Triangle",10,10);
+circle circle_1("Circle",10);
+//----------------------------------//
+
+int main()
+{
+	cout<<"shape:"<<endl
+		  <<"  inst_name:"<<shape_1.get_name()<<endl
+
+		<<rectangle_1.get_name()<<":"<<endl
+		  <<"  width:"
+		  <<rectangle_1.get_width()<<endl
+		  <<"  height:"
+		  <<rectangle_1.get_height()<<endl
+		  <<"  perimeter:"
+		  <<rectangle_1.calc_perimeter()<<endl
+		  <<"  area:"
+		  <<rectangle_1.calc_area()<<endl
+
+		<<right_angled_triangle_1.get_name()<<":"<<endl
+		  <<"  width:"
+		  <<right_angled_triangle_1.get_width()<<endl
+		  <<"  height:"
+		  <<right_angled_triangle_1.get_height()<<endl
+		  <<"  hypotenuse:"
+		  <<right_angled_triangle_1.get_hypotenuse()<<endl
+		  <<"  perimeter:"
+		  <<right_angled_triangle_1.calc_perimeter()<<endl
+		  <<"  area:"
+		  <<right_angled_triangle_1.calc_area()<<endl
+
+		<<circle_1.get_name()<<":"<<endl
+		<<"  radius:"
+		  <<circle_1.get_radius()<<endl
+	      <<"  perimeter:"
+		  <<circle_1.calc_perimeter()<<endl
+		  <<"  area:"
+		  <<circle_1.calc_area()<<endl;
+
+	system("pause");
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
